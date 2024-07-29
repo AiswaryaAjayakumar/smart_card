@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:smart_card/view/login_screen/login_screen.dart';
 
 class RegisterScreen extends StatefulWidget {
   const RegisterScreen({super.key});
@@ -37,13 +38,14 @@ class _RegisterScreenState extends State<RegisterScreen> {
         child: Padding(
           padding: const EdgeInsets.symmetric(horizontal: 30, vertical: 20),
           child: Container(
-            height: MediaQuery.sizeOf(context).height / 1.3,
+            //height: MediaQuery.sizeOf(context).height / 1.3,
             decoration: BoxDecoration(
                 borderRadius: BorderRadius.circular(15),
                 color: const Color.fromARGB(255, 232, 230, 230)),
             child: Padding(
               padding: const EdgeInsets.all(30),
               child: Column(
+                mainAxisSize: MainAxisSize.min,
                 children: [
                   // Container(
                   //   decoration: BoxDecoration(
@@ -72,7 +74,8 @@ class _RegisterScreenState extends State<RegisterScreen> {
                   TextField(
                     decoration: InputDecoration(
                       prefixIcon: Icon(Icons.person),
-                      hintText: "Enter your first name",
+                      hintText: "First name",
+                      //hintStyle: TextStyle(fontSize: 15)
                       //labelText: "First Name"
                     ),
                   ),
@@ -82,7 +85,8 @@ class _RegisterScreenState extends State<RegisterScreen> {
                   TextField(
                     decoration: InputDecoration(
                       prefixIcon: Icon(Icons.person),
-                      hintText: "Enter your last name",
+                      hintText: "Last name",
+                      //hintStyle: TextStyle(fontSize: 15)
                       // labelText: "Last Name"
                     ),
                   ),
@@ -93,7 +97,8 @@ class _RegisterScreenState extends State<RegisterScreen> {
                     keyboardType: TextInputType.number,
                     decoration: InputDecoration(
                       prefixIcon: Icon(Icons.mobile_friendly),
-                      hintText: "+91  Enter your phone number",
+                      hintText: "+91 Phone number",
+                      // hintStyle: TextStyle(fontSize: 15)
                       //labelText: "+91  Phone Number"
                     ),
                   ),
@@ -103,7 +108,8 @@ class _RegisterScreenState extends State<RegisterScreen> {
                   TextField(
                     decoration: InputDecoration(
                       prefixIcon: Icon(Icons.email_outlined),
-                      hintText: "Enter your Email ID",
+                      hintText: "Email ID",
+                      // hintStyle: TextStyle(fontSize: 15)
                       //labelText: "Email"
                     ),
                   ),
@@ -113,7 +119,9 @@ class _RegisterScreenState extends State<RegisterScreen> {
                   TextField(
                     decoration: InputDecoration(
                       prefixIcon: Icon(Icons.lock),
-                      hintText: "Create your password",
+                      suffixIcon: Icon(Icons.remove_red_eye),
+                      hintText: "Password",
+                      // hintStyle: TextStyle(fontSize: 10)
                       //labelText: "Password"
                     ),
                   ),
@@ -147,7 +155,15 @@ class _RegisterScreenState extends State<RegisterScreen> {
                       // SizedBox(
                       //   width: 7,
                       // ),
-                      TextButton(onPressed: () {}, child: Text("Login"))
+                      TextButton(
+                          onPressed: () {
+                            Navigator.push(
+                                context,
+                                MaterialPageRoute(
+                                  builder: (context) => LoginScreen(),
+                                ));
+                          },
+                          child: Text("Login"))
                     ],
                   ),
                 ],
