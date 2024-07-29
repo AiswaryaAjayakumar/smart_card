@@ -150,7 +150,7 @@ class _RegisterScreenState extends State<RegisterScreen> {
                     children: [
                       Text(
                         "Already have an account?",
-                        style: TextStyle(fontWeight: FontWeight.bold),
+                        style: TextStyle(),
                       ),
                       // SizedBox(
                       //   width: 7,
