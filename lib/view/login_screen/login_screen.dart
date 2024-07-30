@@ -159,10 +159,7 @@
 // }
 
 import 'package:flutter/material.dart';
-import 'package:smart_card/utils/color_constants.dart';
 import 'package:smart_card/utils/text_constants.dart';
-import 'package:smart_card/view/home_screen/home_screen.dart';
-import 'package:smart_card/view/login_screen/login_screen.dart';
 
 class LoginScreen extends StatefulWidget {
   const LoginScreen({super.key});
@@ -172,6 +169,7 @@ class LoginScreen extends StatefulWidget {
 }
 
 class _LoginScreenState extends State<LoginScreen> {
+  bool isChecked = false;
   @override
   Widget build(BuildContext context) {
     return SafeArea(
@@ -284,6 +282,7 @@ class _LoginScreenState extends State<LoginScreen> {
                             height: 30,
                           ),
                           TextField(
+                            obscureText: true,
                             decoration: InputDecoration(
                               prefixIcon: Image.asset(
                                 "asset/images/padlock (2).png",
@@ -302,11 +301,30 @@ class _LoginScreenState extends State<LoginScreen> {
                             height: 10,
                           ),
                           SizedBox(
-                            height: 20,
+                            height: 10,
+                          ),
+                          Row(
+                            children: [
+                              Checkbox(
+                                activeColor: Colors.grey,
+                                checkColor: Colors.red,
+                                value: isChecked,
+                                onChanged: (value) {
+                                  if (value != null) {
+                                    isChecked = value;
+                                  }
+                                  setState(() {});
+                                },
+                              ),
+                              Text("Remember me")
+                            ],
+                          ),
+                          SizedBox(
+                            height: 10,
                           ),
                           Container(
                             height: 40,
-                            width: 160,
+                            width: 150,
                             child: ElevatedButton(
                               style: ButtonStyle(
                                   elevation: WidgetStatePropertyAll(5),
@@ -315,21 +333,22 @@ class _LoginScreenState extends State<LoginScreen> {
                               onPressed: () {},
                               child: Text(
                                 "LOGIN",
-                                style: TextStyle(
-                                    color: Colors.white,
-                                    fontWeight: FontWeight.bold),
+                                style: MytextStyle.buttonStyle,
                               ),
                             ),
                           ),
-                          SizedBox(
-                            height: 10,
-                          ),
+                          // SizedBox(
+                          //   height: 10,
+                          // ),
                           TextButton(
                               onPressed: () {},
                               child: Text("Forgot Password?")),
+                          // SizedBox(
+                          //   height: 10,
+                          // ),
                           Container(
                             height: 40,
-                            width: 160,
+                            width: 150,
                             child: ElevatedButton(
                               style: ButtonStyle(
                                   elevation: WidgetStatePropertyAll(5),
@@ -338,9 +357,7 @@ class _LoginScreenState extends State<LoginScreen> {
                               onPressed: () {},
                               child: Text(
                                 "REGISTER",
-                                style: TextStyle(
-                                    color: Colors.white,
-                                    fontWeight: FontWeight.bold),
+                                style: MytextStyle.buttonStyle,
                               ),
                             ),
                           ),
