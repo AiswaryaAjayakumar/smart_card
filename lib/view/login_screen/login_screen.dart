@@ -299,51 +299,50 @@ class _LoginScreenState extends State<LoginScreen> {
                             ),
                           ),
                           SizedBox(
-                            height: 30,
+                            height: 10,
                           ),
-                          ElevatedButton(
-                            style: ButtonStyle(
-                                elevation: WidgetStatePropertyAll(5),
-                                backgroundColor:
-                                    WidgetStatePropertyAll(Colors.red)),
-                            onPressed: () {
-                              Navigator.push(
-                                  context,
-                                  MaterialPageRoute(
-                                    builder: (context) => HomeScreen(),
-                                  ));
-                            },
-                            child: Text(
-                              "REGISTER",
-                              style: MytextStyle.buttonStyle,
+                          SizedBox(
+                            height: 20,
+                          ),
+                          Container(
+                            height: 40,
+                            width: 160,
+                            child: ElevatedButton(
+                              style: ButtonStyle(
+                                  elevation: WidgetStatePropertyAll(5),
+                                  backgroundColor:
+                                      WidgetStatePropertyAll(Colors.red)),
+                              onPressed: () {},
+                              child: Text(
+                                "LOGIN",
+                                style: TextStyle(
+                                    color: Colors.white,
+                                    fontWeight: FontWeight.bold),
+                              ),
                             ),
                           ),
                           SizedBox(
                             height: 10,
                           ),
-                          Row(
-                            children: [
-                              Text(
-                                "Already have an account?",
-                                style: TextStyle(),
+                          TextButton(
+                              onPressed: () {},
+                              child: Text("Forgot Password?")),
+                          Container(
+                            height: 40,
+                            width: 160,
+                            child: ElevatedButton(
+                              style: ButtonStyle(
+                                  elevation: WidgetStatePropertyAll(5),
+                                  backgroundColor:
+                                      WidgetStatePropertyAll(Colors.red)),
+                              onPressed: () {},
+                              child: Text(
+                                "REGISTER",
+                                style: TextStyle(
+                                    color: Colors.white,
+                                    fontWeight: FontWeight.bold),
                               ),
-                              // SizedBox(
-                              //   width: 7,
-                              // ),
-                              TextButton(
-                                  onPressed: () {
-                                    Navigator.push(
-                                        context,
-                                        MaterialPageRoute(
-                                          builder: (context) => LoginScreen(),
-                                        ));
-                                  },
-                                  child: Text(
-                                    "Login",
-                                    style: TextStyle(
-                                        color: ColorConstants.customRed),
-                                  ))
-                            ],
+                            ),
                           ),
                         ],
                       ),
