@@ -160,6 +160,7 @@
 
 import 'package:flutter/material.dart';
 import 'package:smart_card/utils/text_constants.dart';
+import 'package:smart_card/view/register_screen/register_screen.dart';
 
 class LoginScreen extends StatefulWidget {
   const LoginScreen({super.key});
@@ -198,17 +199,20 @@ class _LoginScreenState extends State<LoginScreen> {
         // ),
         body: Container(
           decoration: BoxDecoration(
-            gradient: LinearGradient(
-              begin: Alignment.topRight,
-              end: Alignment.bottomLeft,
-              stops: [0.1, 0.6, 0.7, 0.8],
-              colors: [
-                Colors.black,
-                Colors.red,
-                const Color.fromARGB(255, 62, 61, 61),
-                const Color.fromARGB(255, 129, 40, 33),
-              ],
-            ),
+            image: DecorationImage(
+                image: AssetImage("asset/images/background-image.jpg"),
+                fit: BoxFit.cover),
+            // gradient: LinearGradient(
+            //   begin: Alignment.topRight,
+            //   end: Alignment.bottomLeft,
+            //   stops: [0.1, 0.6, 0.7, 0.8],
+            //   colors: [
+            //     Colors.black,
+            //     Colors.red,
+            //     const Color.fromARGB(255, 62, 61, 61),
+            //     const Color.fromARGB(255, 129, 40, 33),
+            //   ],
+            // ),
           ),
           height: MediaQuery.sizeOf(context).height,
           child: SingleChildScrollView(
@@ -218,11 +222,12 @@ class _LoginScreenState extends State<LoginScreen> {
                 children: [
                   Container(
                     decoration: BoxDecoration(
-                      borderRadius: BorderRadius.only(
-                          topLeft: Radius.circular(10),
-                          topRight: Radius.circular(10),
-                          bottomLeft: Radius.circular(10),
-                          bottomRight: Radius.circular(10)),
+                      boxShadow: [
+                        BoxShadow(
+                            color: const Color.fromARGB(255, 29, 28, 28),
+                            blurRadius: 3)
+                      ],
+                      borderRadius: BorderRadius.circular(15),
                       color: const Color.fromARGB(255, 232, 230, 230),
                     ),
                     // ignore: sort_child_properties_last
@@ -258,7 +263,7 @@ class _LoginScreenState extends State<LoginScreen> {
                         boxShadow: [
                           BoxShadow(
                               color: const Color.fromARGB(255, 29, 28, 28),
-                              blurRadius: 15)
+                              blurRadius: 3)
                         ],
                         borderRadius: BorderRadius.circular(15),
                         color: const Color.fromARGB(255, 232, 230, 230)),
@@ -269,14 +274,15 @@ class _LoginScreenState extends State<LoginScreen> {
                         children: [
                           TextField(
                             decoration: InputDecoration(
-                              prefixIcon: Image.asset(
-                                "asset/images/email.png",
-                                scale: 15,
-                              ),
-                              hintText: "Email ID",
-                              // hintStyle: TextStyle(fontSize: 15)
-                              //labelText: "Email"
-                            ),
+                                prefixIcon: Image.asset(
+                                  "asset/images/email.png",
+                                  scale: 15,
+                                ),
+                                hintText: "Email ID",
+                                hintStyle: MytextStyle.hintStyle
+                                // hintStyle: TextStyle(fontSize: 15)
+                                //labelText: "Email"
+                                ),
                           ),
                           SizedBox(
                             height: 30,
@@ -284,25 +290,23 @@ class _LoginScreenState extends State<LoginScreen> {
                           TextField(
                             obscureText: true,
                             decoration: InputDecoration(
-                              prefixIcon: Image.asset(
-                                "asset/images/padlock (2).png",
-                                scale: 15,
-                              ),
-                              suffixIcon: Image.asset(
-                                "asset/images/eye-password.png",
-                                scale: 19,
-                              ),
-                              hintText: "Password",
-                              // hintStyle: TextStyle(fontSize: 10)
-                              //labelText: "Password"
-                            ),
+                                prefixIcon: Image.asset(
+                                  "asset/images/padlock (2).png",
+                                  scale: 15,
+                                ),
+                                suffixIcon: Image.asset(
+                                  "asset/images/eye-password.png",
+                                  scale: 19,
+                                ),
+                                hintText: "Password",
+                                hintStyle: MytextStyle.hintStyle
+                                //labelText: "Password"
+                                ),
                           ),
                           SizedBox(
                             height: 10,
                           ),
-                          SizedBox(
-                            height: 10,
-                          ),
+
                           Row(
                             children: [
                               Checkbox(
@@ -316,7 +320,10 @@ class _LoginScreenState extends State<LoginScreen> {
                                   setState(() {});
                                 },
                               ),
-                              Text("Remember me")
+                              Text(
+                                "Remember me",
+                                style: MytextStyle.normalText,
+                              )
                             ],
                           ),
                           SizedBox(
@@ -354,7 +361,14 @@ class _LoginScreenState extends State<LoginScreen> {
                                   elevation: WidgetStatePropertyAll(5),
                                   backgroundColor:
                                       WidgetStatePropertyAll(Colors.red)),
-                              onPressed: () {},
+                              onPressed: () {
+                                Navigator.pushAndRemoveUntil(
+                                    context,
+                                    MaterialPageRoute(
+                                      builder: (context) => RegisterScreen(),
+                                    ),
+                                    (route) => false);
+                              },
                               child: Text(
                                 "REGISTER",
                                 style: MytextStyle.buttonStyle,

@@ -68,11 +68,7 @@ class _RegisterScreenState extends State<RegisterScreen> {
                             color: const Color.fromARGB(255, 29, 28, 28),
                             blurRadius: 3)
                       ],
-                      borderRadius: BorderRadius.only(
-                          topLeft: Radius.circular(10),
-                          topRight: Radius.circular(10),
-                          bottomLeft: Radius.circular(10),
-                          bottomRight: Radius.circular(10)),
+                      borderRadius: BorderRadius.circular(15),
                       color: const Color.fromARGB(255, 232, 230, 230),
                     ),
                     // ignore: sort_child_properties_last
@@ -124,7 +120,7 @@ class _RegisterScreenState extends State<RegisterScreen> {
                                 scale: 15,
                               ),
                               hintText: "First name",
-                              //hintStyle: TextStyle(fontSize: 15)
+                              hintStyle: MytextStyle.hintStyle,
                               //labelText: "First Name"
                             ),
                           ),
@@ -138,7 +134,7 @@ class _RegisterScreenState extends State<RegisterScreen> {
                                 scale: 15,
                               ),
                               hintText: "Last name",
-                              //hintStyle: TextStyle(fontSize: 15)
+                              hintStyle: MytextStyle.hintStyle,
                               // labelText: "Last Name"
                             ),
                           ),
@@ -153,7 +149,7 @@ class _RegisterScreenState extends State<RegisterScreen> {
                                 scale: 15,
                               ),
                               hintText: "+91 Phone number",
-                              // hintStyle: TextStyle(fontSize: 15)
+                              hintStyle: MytextStyle.hintStyle,
                               //labelText: "+91  Phone Number"
                             ),
                           ),
@@ -167,7 +163,7 @@ class _RegisterScreenState extends State<RegisterScreen> {
                                 scale: 15,
                               ),
                               hintText: "Email ID",
-                              // hintStyle: TextStyle(fontSize: 15)
+                              hintStyle: MytextStyle.hintStyle,
                               //labelText: "Email"
                             ),
                           ),
@@ -185,7 +181,7 @@ class _RegisterScreenState extends State<RegisterScreen> {
                                 scale: 19,
                               ),
                               hintText: "Password",
-                              // hintStyle: TextStyle(fontSize: 10)
+                              hintStyle: MytextStyle.hintStyle,
                               //labelText: "Password"
                             ),
                           ),
@@ -214,26 +210,21 @@ class _RegisterScreenState extends State<RegisterScreen> {
                           ),
                           Row(
                             children: [
-                              Text(
-                                "Already have an account?",
-                                style: TextStyle(),
+                              Text("Already have an account?",
+                                  style: MytextStyle.normalText),
+                              SizedBox(
+                                width: 5,
                               ),
-                              // SizedBox(
-                              //   width: 7,
-                              // ),
-                              TextButton(
-                                  onPressed: () {
+                              InkWell(
+                                  onTap: () {
                                     Navigator.push(
                                         context,
                                         MaterialPageRoute(
                                           builder: (context) => LoginScreen(),
                                         ));
                                   },
-                                  child: Text(
-                                    "Login",
-                                    style: TextStyle(
-                                        color: ColorConstants.customRed),
-                                  ))
+                                  child: Text("Login",
+                                      style: MytextStyle.normalText1))
                             ],
                           ),
                         ],

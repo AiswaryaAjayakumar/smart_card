@@ -7,4 +7,5 @@ class ColorConstants {
   static Color customR = Color.fromARGB(255, 151, 21, 21);
   static Color customWhite = Colors.white;
   static Color customBlack = Colors.black;
+  static Color customGrey = const Color.fromARGB(255, 97, 94, 94);
 }
