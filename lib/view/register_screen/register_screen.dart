@@ -40,17 +40,20 @@ class _RegisterScreenState extends State<RegisterScreen> {
         // ),
         body: Container(
           decoration: BoxDecoration(
-            gradient: LinearGradient(
-              begin: Alignment.topRight,
-              end: Alignment.bottomLeft,
-              stops: [0.1, 0.6, 0.7, 0.8],
-              colors: [
-                Colors.black,
-                Colors.red,
-                const Color.fromARGB(255, 62, 61, 61),
-                const Color.fromARGB(255, 129, 40, 33),
-              ],
-            ),
+            image: DecorationImage(
+                image: AssetImage("asset/images/background-image.jpg"),
+                fit: BoxFit.cover),
+            // gradient: LinearGradient(
+            //   begin: Alignment.topRight,
+            //   end: Alignment.bottomLeft,
+            //   stops: [0.1, 0.6, 0.7, 0.8],
+            //   colors: [
+            //     Colors.black,
+            //     Colors.red,
+            //     const Color.fromARGB(255, 62, 61, 61),
+            //     const Color.fromARGB(255, 129, 40, 33),
+            //   ],
+            // ),
           ),
           height: MediaQuery.sizeOf(context).height,
           child: SingleChildScrollView(
@@ -60,6 +63,11 @@ class _RegisterScreenState extends State<RegisterScreen> {
                 children: [
                   Container(
                     decoration: BoxDecoration(
+                      boxShadow: [
+                        BoxShadow(
+                            color: const Color.fromARGB(255, 29, 28, 28),
+                            blurRadius: 3)
+                      ],
                       borderRadius: BorderRadius.only(
                           topLeft: Radius.circular(10),
                           topRight: Radius.circular(10),
@@ -100,7 +108,7 @@ class _RegisterScreenState extends State<RegisterScreen> {
                         boxShadow: [
                           BoxShadow(
                               color: const Color.fromARGB(255, 29, 28, 28),
-                              blurRadius: 15)
+                              blurRadius: 3)
                         ],
                         borderRadius: BorderRadius.circular(15),
                         color: const Color.fromARGB(255, 232, 230, 230)),
